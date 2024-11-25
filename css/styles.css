@@ -218,10 +218,12 @@ p {
 }
 
 .solution-icon {
+    display: flex;
     width: 50px;
     height: 50px;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem;
     color: #E3B361;
+    justify-content: center;
 }
 
 .solution-title {
