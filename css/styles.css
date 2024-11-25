@@ -348,7 +348,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
+    background-color: rgba(0, 0, 0, 0.6); /* Oscurece la imagen */
     z-index: 1;
 }
 
@@ -364,8 +364,8 @@ p {
 }
 
 .cta-content h1 {
-    color: #6B7280;
-    font-size: 3.8rem;
+    color: #becce6;
+    font-size: 3rem;
     margin-bottom: 16px;
     font-weight: 800;
 }
