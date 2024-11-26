@@ -73,7 +73,7 @@ body {
     margin-bottom: 30px;
     color: var(--text-dark);
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .benefit-list {
@@ -87,7 +87,7 @@ body {
     align-items: center;
     font-weight: 700;
     margin-bottom: 15px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .benefit-list li::before {
