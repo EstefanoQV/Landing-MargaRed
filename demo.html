@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Margared - Solicitud de Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="info-section">
+            <a href="index.html" class="back-arrow">
+                <i class="fa fa-arrow-left"></i> Volver
+            </a>
+            <h1>Margared: Revoluciona tu Empresa Constructora</h1>
+            <p>Transforma la gestión de tu empresa con tecnología de vanguardia. Simplifica operaciones, maximiza recursos y toma decisiones inteligentes.</p>
+            
+            <ul class="benefit-list">
+                <li>Gestión integral de empleados y maquinaria</li>
+                <li>Métricas en tiempo real con visualización avanzada</li>
+                <li>Planificación de proyectos y calendarios optimizada</li>
+                <li>Control preciso de consumo de combustible</li>
+                <li>Reportes detallados que impulsan la productividad</li>
+            </ul>
+
+            <p>Empresas líderes del sector construcción están mejorando su operación con Margared. ¡Es tu turno de sobresalir!</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/alejaterapidamente" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/robinson_fdm/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://wa.me/+51966769866?text=Solicito%20información" id="whatsapp-link" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-container">
+                <h2 class="form-title">Solicita Información</h2>
+                
+                <form id="form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="nombre" class="form-label">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" class="form-input" required placeholder="Ingresa tu nombre completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" class="form-input" required placeholder="email@empresa.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa" class="form-label">Empresa</label>
+                        <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nombre de tu empresa">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" class="form-input" required placeholder="Número de contacto">
+                    </div>
+
+                    <button type="submit" class="submit-btn">Solicitar Información</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        // Obtener valores de los campos
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const empresa = document.getElementById('empresa').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+
+        // Validación básica
+        if (!nombre || !email || !telefono) {
+            alert('Por favor complete los campos requeridos');
+            return;
+        }
+
+        // Validar formato de correo electrónico
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert('Por favor ingrese un correo electrónico válido');
+            return;
+        }
+
+        // Crear mensaje para WhatsApp
+        const message = `Requiero información del software, contáctame a:%0A` +
+                        `Nombre: ${encodeURIComponent(nombre)}%0A` +
+                        `Correo electrónico: ${encodeURIComponent(email)}%0A` +
+                        `Empresa: ${encodeURIComponent(empresa)}%0A` +
+                        `Teléfono: ${encodeURIComponent(telefono)}`;
+
+        // Número de WhatsApp al que se enviará el mensaje
+        const phoneNumber = '+51966769866';
+
+        // Generar enlace de WhatsApp
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+        // Abrir WhatsApp en una nueva ventana
+        window.open(whatsappUrl, '_blank');
+
+        // Confirmación de envío
+        alert('Redirigiendo a WhatsApp. Asegúrate de enviar tu mensaje.');
+    });
+});
+
+    </script>
+</body>
+</html>
