@@ -122,25 +122,24 @@ body {
 .social-icons a:hover {
     color: #FF713D;
 }
-
 .form-section {
     flex: 1.5;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 20px;
     position: relative;
     z-index: 1;
 }
 
 .form-container {
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     background-color: var(--form-bg);
-    border-radius: 20px;
-    padding: 50px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
+    border-radius: 12px;  /* Ligera reducción de la curvatura */
+    padding: 30px;  /* Reducido ligeramente para un diseño más compacto */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);  /* Sombra más suave */
+    backdrop-filter: blur(6px);  /* Desenfoque ligeramente mayor para un efecto más nítido */
     position: relative;
     z-index: 10;
 }
@@ -148,30 +147,30 @@ body {
 .form-title {
     text-align: center;
     color: var(--text-dark);
-    margin-bottom: 30px;
-    font-size: 2.5rem;
-    font-weight: 900;
+    margin-bottom: 18px;  /* Margen reducido */
+    font-size: 2.125rem;  /* Un poco más grande para destacar */
+    font-weight: 800;  /* Un poco menos grueso para suavizar el impacto */
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 18px;  /* Un poco más espacio entre los grupos */
 }
 
 .form-label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;  /* Aumentado ligeramente para mayor espacio */
     color: var(--text-dark);
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .form-input, .form-select {
     width: 100%;
-    padding: 17px;
+    padding: 14px;  /* Un poco más de relleno para mayor comodidad */
     border: 2px solid #ddd;
-    border-radius: 15px;
+    border-radius: 12px;  /* Curvatura un poco más suave */
     transition: all 0.3s ease;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
 }
 
 .form-input:focus, .form-select:focus {
@@ -181,21 +180,31 @@ body {
 }
 
 .submit-btn {
-    width: 100%;
-    padding: 16px;
+    margin-top: 30px;
+    width: 50%;
+    padding: 14px;
     background-color: var(--primary-color);
     color: var(--text-light);
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    display: block;  /* Hace que el botón sea un bloque */
+    margin-left: auto;  /* Centra el botón */
+    margin-right: auto;  /* Centra el botón */
+}
+
+.form-input, .form-select, .iti {
+    width: 100%;
+
 }
 
 .submit-btn:hover {
     background-color: #c99b50;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {

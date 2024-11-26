@@ -5,7 +5,7 @@
     <title>Margared - Solicitud de Demo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/demo.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
 <body>
     <div class="container">
         <div class="info-section">
@@ -53,7 +53,7 @@
 
                     <div class="form-group">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" class="form-input" required placeholder="Número de contacto">
+                        <input type="tel" id="telefono" name="telefono" class="form-input iti" required placeholder="Número de contacto">
                     </div>
 
                     <button type="submit" class="submit-btn">Solicitar Información</button>
@@ -62,53 +62,52 @@
         </div>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputTelefono = document.querySelector("#telefono");
+            const iti = window.intlTelInput(inputTelefono, {
+                initialCountry: "pe",
+                preferredCountries: ['pe', 'us', 'es'], 
+                nationalMode: false,
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                separateDialCode: true,
+            });
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
+            const form = document.querySelector('form');
 
-        // Obtener valores de los campos
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const empresa = document.getElementById('empresa').value.trim();
-        const telefono = document.getElementById('telefono').value.trim();
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
 
-        // Validación básica
-        if (!nombre || !email || !telefono) {
-            alert('Por favor complete los campos requeridos');
-            return;
-        }
+                const nombre = document.getElementById('nombre').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const empresa = document.getElementById('empresa').value.trim();
+                const telefono = iti.getNumber(); 
 
-        // Validar formato de correo electrónico
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            alert('Por favor ingrese un correo electrónico válido');
-            return;
-        }
+                if (!nombre || !email || !telefono) {
+                    alert('Por favor complete los campos requeridos');
+                    return;
+                }
 
-        // Crear mensaje para WhatsApp
-        const message = `Requiero información del software, contáctame a:%0A` +
-                        `Nombre: ${encodeURIComponent(nombre)}%0A` +
-                        `Correo electrónico: ${encodeURIComponent(email)}%0A` +
-                        `Empresa: ${encodeURIComponent(empresa)}%0A` +
-                        `Teléfono: ${encodeURIComponent(telefono)}`;
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    alert('Por favor ingrese un correo electrónico válido');
+                    return;
+                }
 
-        // Número de WhatsApp al que se enviará el mensaje
-        const phoneNumber = '+51966769866';
+                // Crear mensaje para WhatsApp
+                const message = `Requiero información del software, contáctame a:%0A` +
+                                `Nombre: ${encodeURIComponent(nombre)}%0A` +
+                                `Correo electrónico: ${encodeURIComponent(email)}%0A` +
+                                `Empresa: ${encodeURIComponent(empresa)}%0A` +
+                                `Teléfono: ${encodeURIComponent(telefono)}`;
 
-        // Generar enlace de WhatsApp
-        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
-
-        // Abrir WhatsApp en una nueva ventana
-        window.open(whatsappUrl, '_blank');
-
-        // Confirmación de envío
-        alert('Redirigiendo a WhatsApp. Asegúrate de enviar tu mensaje.');
-    });
-});
-
+                const phoneNumber = '+51966769866';
+                const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+                window.open(whatsappUrl, '_blank');
+                alert('Redirigiendo a WhatsApp. Asegúrate de enviar tu mensaje.');
+            });
+        });
     </script>
 </body>
 </html>
